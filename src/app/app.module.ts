@@ -15,6 +15,13 @@ import { ItemsBannerComponent } from './components/items-banner/items-banner.com
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { PaginatorModule } from 'primeng/paginator';
 import { MovieComponent } from './pages/movie/movie.component';
+import { TabViewModule } from 'primeng/tabview';
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
+import { ImageModule } from 'primeng/image';
+import { CarouselModule } from 'primeng/carousel';
+import { PanelModule } from 'primeng/panel';
+import { GenresComponent } from './pages/genres/genres.component';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,9 @@ import { MovieComponent } from './pages/movie/movie.component';
     SliderComponent,
     ItemsBannerComponent,
     MovieItemComponent,
-    MovieComponent
+    MovieComponent,
+    VideoEmbedComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,12 @@ import { MovieComponent } from './pages/movie/movie.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    PaginatorModule
+    PaginatorModule,
+    TabViewModule,
+    ImageModule,
+    CarouselModule,
+    PanelModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

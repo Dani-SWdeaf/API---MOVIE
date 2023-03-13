@@ -1,0 +1,52 @@
+:host ::ng-deep {
+    .p-tabview-nav {
+        justify-content: center;
+
+        li {
+            .p-tabview-nav-link {
+                background-color: #000000;
+            }
+
+            &.p-highlight .p-tabview-nav-link {
+                background-color: #000000;
+            }
+        }
+    }
+}
+
+.poster {
+    max-width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overview {
+    line-height: 1.5;
+}
+
+.stat {
+    display: flex;
+    margin-bottom: 15px;
+
+    .label {
+        width: 150px;
+        font-weight: bold;
+    }
+
+    .value {
+        color: #ffd54f;
+    }
+}
+
+.actor {
+    padding: 10px;
+    img {
+        width: 100%;
+    }
+    span {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+}

@@ -12,6 +12,7 @@ import { take } from 'rxjs';
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
   genreId: string | null = null;
+  searchValue: string | null = null;
 
   constructor(private moviesService: MoviesService, private router: ActivatedRoute) {}
 
@@ -26,14 +27,20 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  searchChanged() {
+    if (this.searchValue) {
+      this.getPagedMovies(1, this.searchValue);
+    }
+  }
+
   getMoviesByGenre(genreId: string, page: number) {
     this.moviesService.getMoviesByGenre(genreId, page).subscribe((movies) => {
       this.movies = movies;
     });
   }
 
-  getPagedMovies(page: number) {
-    this.moviesService.searchMovies(page).subscribe((movies) => {
+  getPagedMovies(page: number, searchKeyword?: string) {
+    this.moviesService.searchMovies(page, searchKeyword).subscribe((movies) => {
       this.movies = movies;
     });
   }
@@ -43,7 +50,11 @@ export class MoviesComponent implements OnInit {
     if (this.genreId) {
       this.getMoviesByGenre(this.genreId, pageNumber);
     } else {
-      this.getPagedMovies(pageNumber);
+      if (this.searchValue) {
+        this.getPagedMovies(pageNumber, this.searchValue);
+      } else {
+        this.getPagedMovies(pageNumber);
+      }
     }
   }
 }
